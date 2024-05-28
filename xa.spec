@@ -5,12 +5,13 @@
 Summary:	Cross-assembler for the 6502 and 65816 CPUs (and derivatives)
 Summary(pl.UTF-8):	Asembler skrośny dla procesorów 6502 oraz 65816 (i pochodnych)
 Name:		xa
-Version:	2.3.14
+Version:	2.4.1
 Release:	1
 License:	GPL v2+
 Group:		Development/Languages
 Source0:	https://www.floodgap.com/retrotech/xa/dists/%{name}-%{version}.tar.gz
-# Source0-md5:	c708214bf5d79a6c9ac98424bf7840a5
+# Source0-md5:	86ef6e8562b2e30b55c41e835178aede
+Patch0:		%{name}-make.patch
 URL:		https://www.floodgap.com/retrotech/xa/
 %{?with_tests:BuildRequires:	perl-base}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,6 +28,7 @@ skompilować większością kompilatorów ANSI C.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \

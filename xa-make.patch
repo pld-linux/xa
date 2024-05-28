@@ -1,0 +1,21 @@
+--- xa-2.4.1/Makefile.orig	2024-01-10 07:16:03.000000000 +0100
++++ xa-2.4.1/Makefile	2024-05-28 21:44:22.385604018 +0200
+@@ -29,7 +29,7 @@ INSTALL = install
+ 
+ TESTS=ALL
+ 
+-all: killxa xa uncpk
++all: xa uncpk
+ 
+ killxa:
+ 	rm -f xa
+@@ -70,9 +70,6 @@ dist: clean
+ 
+ # no prereqs to force parallel make to play nice
+ test: 
+-	rm -rf xa
+-	$(MAKE) xa
+-	$(MAKE) uncpk
+ 	cd tests && ./harness \
+ 		-tests="$(TESTS)" \
+ 		-cc="$(CC)" -cflags="$(CFLAGS)"  \
